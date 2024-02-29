@@ -75,5 +75,5 @@ jobs:
       with:
         name: gearcore_${{ matrix.arch }}
         path: |
-          ${{ github.workspace }}/**.dll
-          ${{ github.workspace }}/**.so
+          ${{ github.workspace }}/platforms/libretro/**.dll
+          ${{ github.workspace }}/platforms/libretro/**.so
