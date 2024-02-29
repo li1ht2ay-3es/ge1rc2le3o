@@ -19,7 +19,7 @@ jobs:
 
     - uses: li1ht2ay-3es/gi1-ac2io3s@checkout-branch
       with:
-        branch: tester
+        branch: upstream
 
         token: ${{ secrets.token }}
         auto: true
@@ -57,7 +57,7 @@ jobs:
         CC: ${{ env.MINGW_CC }}
         CXX: ${{ env.MINGW_CXX }}
       run: |
-        make -f Makefile.libretro platform="win"
+        make -f platforms/libretro/Makefile platform="win"
 
 
 
@@ -67,7 +67,7 @@ jobs:
         CC: gcc
         CXX: g++
       run: |
-        make -f Makefile.libretro platform="unix"
+        make -f platforms/libretro/Makefile platform="unix"
 
 
 
