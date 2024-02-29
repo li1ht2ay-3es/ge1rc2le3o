@@ -50,30 +50,30 @@ jobs:
 
 
     - if: matrix.arch == 'x86' || matrix.arch == 'x64'
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/platforms/libretro
       env:
         # CC: ccache ${{ env.MINGW_CC }}
         # CXX: ccache ${{ env.MINGW_CXX }}
         CC: ${{ env.MINGW_CC }}
         CXX: ${{ env.MINGW_CXX }}
       run: |
-        make -f Makefile.libretro platform="win"
+        make -f Makefile platform="win"
 
 
 
     - if: matrix.arch == 'so64'
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/platforms/libretro
       env:
         CC: gcc
         CXX: g++
       run: |
-        make -f Makefile.libretro platform="unix"
+        make -f Makefile platform="unix"
 
 
 
     - uses: actions/upload-artifact@main
       with:
-        name: gearcore_${{ matrix.arch }}
+        name: gearcoleco_libretro_${{ matrix.arch }}
         path: |
-          ${{ github.workspace }}/**.dll
-          ${{ github.workspace }}/**.so
+          ${{ github.workspace }}/platforms/libretro/**.dll
+          ${{ github.workspace }}/platforms/libretro/**.so
