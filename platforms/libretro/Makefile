@@ -319,7 +319,7 @@ LDFLAGS += $(LIBM)
 ifeq ($(DEBUG), 1)
    CXXFLAGS += -O0 -DDEBUG -g
 else
-   CXXFLAGS += -O3
+   CXXFLAGS += -O3 -flto
 endif
 
 GIT_VERSION ?= " $(shell git describe --abbrev=7 --dirty --always --tags || echo unknown)"
